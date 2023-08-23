@@ -8,7 +8,7 @@ const page = async ({ params }) => {
 
   //const postPromise = singlePost(id);
 
-  const post = await singlePost(id);
+  const post = (await singlePost(id)) || {};
   //const details = await post.postDetails;
   return (
     <div className="p-5 m-5 mx-40 ">
