@@ -14,50 +14,74 @@ const Contact = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    alert(inputs);
+    alert(JSON.stringify(inputs));
   };
 
   return (
     <div className="container mx-auto max-w-screen-lg">
-      <h1 className="font-bold text-lg">Contact Us</h1>
+      <h1 className="font-bold text-lg m-3">Contact Us</h1>
 
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>
-            Enter Your Name:
+      <div
+        className="flex flex-col 
+                    items-center justify-center border border-gray-100"
+      >
+        <form onSubmit={handleSubmit}>
+          <div className="m-3 ">
             <input
               type="text"
               name="username"
               value={inputs.username || ""}
               onChange={handleChange}
+              placeholder="Enter Your Name"
+              className="text-gray-base w-full 
+                mr-3 py-5 px-4 h-2 border 
+                border-gray-200 rounded mb-2"
             />
-          </label>
-        </div>
-        <div>
-          <label>
-            Enter Your Email:
+          </div>
+          <div className="m-3">
             <input
               type="email"
               name="email"
               value={inputs.email || ""}
               onChange={handleChange}
+              placeholder="Enter Your Email"
+              className="text-gray-base w-full 
+                mr-3 py-5 px-4 h-2 border 
+                border-gray-200 rounded mb-2"
             />
-          </label>
-        </div>
-        <div>
-          <label>
-            Enter Your Website URL:
-            <iframe
-              src="https://www.example.com"
+          </div>
+          <div className="m-3">
+            <input
+              type="url"
               name="website"
               value={inputs.website || ""}
               onChange={handleChange}
+              placeholder="Enter Your Website URL"
+              className="text-gray-base w-full 
+                mr-3 py-5 px-4 h-2 border 
+                border-gray-200 rounded mb-2"
             />
-          </label>
-        </div>
+          </div>
 
-        <input type="submit" />
-      </form>
+          <div className="m-3">
+            <textarea
+              name="message"
+              rows="10"
+              value={inputs.message || ""}
+              onChange={handleChange}
+              placeholder="Enter Your Message"
+              className="text-gray-base w-full 
+                mr-3 py-5 px-4 h-2 border 
+                border-gray-200 rounded mb-2"
+            />
+          </div>
+
+          <input
+            type="submit"
+            className="bg-blue-700 w-full py-2 my-4 text-white"
+          />
+        </form>
+      </div>
     </div>
   );
 };
